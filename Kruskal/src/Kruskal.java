@@ -1,5 +1,4 @@
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
+import java.io.*;
 
 public class Kruskal {
 
@@ -34,7 +33,7 @@ public class Kruskal {
 		}
 		
 		//ordenar aristas de forma ascendente por peso
-		for(i=0;i<m-1;i++){
+		for(i=0;i<=m-1;i++){
 			for(j=0;j<m-i-1; j++){
 				if(e[j].wt > e[j+1].wt){
 					t=e[j];
@@ -70,13 +69,17 @@ public class Kruskal {
 		if(i!=n-1){
 			System.out.println("No se puede formar arbol de expansion minima");
 		}
+		else{
+			System.out.print("Arista ("+e[j].u+", "+e[j].v+") "+
+					"con peso: "+e[j].wt+" Finalizado");
+		}
 	}
 	public static boolean RevisaCiclo(Arista e){
 		int u=e.u, v=e.v;
 		while(path[u]>0)
 			u=path[u];
 		while(path[v]>0)
-			u=path[v];
+			v=path[v];
 		if(u!=v){
 			path[u]=v;
 			return true;
