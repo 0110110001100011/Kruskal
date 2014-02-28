@@ -1,5 +1,5 @@
 import java.io.*;
-
+//codigo editado
 public class Kruskal {
 
 	static int path[];
